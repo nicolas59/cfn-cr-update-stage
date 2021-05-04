@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Stack CustomRessource DeployStage
+Resources:
+  Custom:
+    Type: Custom::CustomResource
+    Properties:
+      ServiceToken: !ImportValue cfn-update-stage::ApimUpdateStage
+      RestApiId: "x1hvjdeeph"
+      StageName: "demo"
+      Description: "Description Demo 2"
+      Variables: 
+        vpcId: "1234"
+        url: "http://localhost"
